@@ -1,6 +1,3 @@
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import io.ktor.util.*
 import kotlinx.coroutines.runBlocking
 import java.io.File
@@ -33,18 +30,7 @@ class SpeechAPIrequest {
         val inputFile = File(filename)
         val audioInputStream = AudioSystem.getAudioInputStream(inputFile)
 
-
-        val byteArray = audioInputStream.readBytes()
-
-//        for (i in byteArray){
-//            println(i)
-//        }
-//
-//        audioInputStream.close()
-//        println(byteArray)
-//        println(audioInputStream.format)
-
-        return byteArray
+        return audioInputStream.readBytes()
 
     }
 

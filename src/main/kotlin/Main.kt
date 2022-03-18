@@ -26,12 +26,8 @@ fun App() {
 
     MaterialTheme {
 
-
         var voiceRecorder = VoiceRecorder()
         val speechAPI = SpeechAPIrequest()
-//        val byteArray = speechAPI.getPcmByteArray("src/main/resources/record.wav")
-
-
 
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -60,3 +56,10 @@ fun main() = application {
     }
 }
 
+@Throws(UnsupportedAudioFileException::class, IOException::class)
+fun getFormatFromFile(filename: String?): javax.sound.sampled.AudioFormat {
+    val inputFile = File(filename)
+    val audioInputStream = AudioSystem.getAudioInputStream(inputFile)
+    return audioInputStream.format
+
+}

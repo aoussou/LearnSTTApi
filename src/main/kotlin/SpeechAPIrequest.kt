@@ -20,6 +20,8 @@ class SpeechAPIrequest {
 
         require(response != null){"response null"}
 
+        println(response.transcription)
+
         return response.transcription
     }
 
